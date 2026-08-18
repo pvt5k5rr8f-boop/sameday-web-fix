@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nor Bay Mobile Detailing — Instant Price (concept demo)</title>
+<meta name="description" content="Concept demo: instant pricing for Nor Bay Mobile Detailing, San Jose.">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="Nor Bay Mobile Detailing — Instant Price (concept demo)">
+<meta property="og:description" content="Concept demo: instant pricing for Nor Bay Mobile Detailing, San Jose.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚘</text></svg>">
+<style>
+/* ============ TOKENS ============ */
+:root{
+  --accent:#12467f;
+  --accent-dark:#0e3663;
+  --accent-soft:rgba(18,70,127,0.10);
+  --ink:#12161c;
+  --ink-2:#414b58;
+  --ink-3:#6b7684;
+  --line:#e3e7ec;
+  --line-2:#eef1f4;
+  --bg:#ffffff;
+  --bg-2:#f6f8fa;
+  --bg-3:#eef2f6;
+  --ok:#0a7d46;
+  --radius:14px;
+  --radius-lg:20px;
+  --shadow-sm:0 1px 2px rgba(16,24,40,.05),0 1px 3px rgba(16,24,40,.06);
+  --shadow-md:0 4px 12px rgba(16,24,40,.07),0 2px 4px rgba(16,24,40,.04);
+  --shadow-lg:0 16px 40px rgba(16,24,40,.12),0 4px 12px rgba(16,24,40,.06);
+  --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --maxw:640px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;font-family:var(--font);color:var(--ink);background:var(--bg);
+  font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;
+  padding-bottom:var(--stickypad,0px);
+}
+img{max-width:100%;display:block}
+a{color:var(--accent-dark);text-decoration:none}
+h1,h2,h3{margin:0;line-height:1.18;letter-spacing:-0.021em;font-weight:800}
+p{margin:0}
+button{font:inherit}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+.sec{padding:38px 0}
+.sec + .sec{border-top:1px solid var(--line-2)}
+
+/* ============ DEMO RIBBON ============ */
+.demo-note{
+  background:#1d2430;color:#c8d2e0;font-size:12.5px;line-height:1.45;
+  padding:9px 20px;text-align:center;letter-spacing:.01em;
+}
+.demo-note b{color:#fff;font-weight:650}
+
+/* ============ HERO ============ */
+.hero{background:linear-gradient(178deg,var(--bg-2) 0%,var(--bg) 78%);padding:30px 0 34px}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:700;
+  letter-spacing:.055em;text-transform:uppercase;color:var(--accent-dark);
+  background:var(--accent-soft);padding:6px 11px;border-radius:100px;margin-bottom:14px;
+}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--ok);flex:none}
+.hero h1{font-size:clamp(29px,7.6vw,40px);margin-bottom:11px}
+.hero .sub{font-size:17.5px;color:var(--ink-2);margin-bottom:8px}
+.trust{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}
+.chip{
+  font-size:13.5px;font-weight:600;color:var(--ink-2);background:var(--bg-3);
+  border:1px solid var(--line);padding:6px 11px;border-radius:100px;
+}
+
+/* ============ BUTTONS ============ */
+.cta-row{display:grid;gap:10px;margin-top:20px}
+@media(min-width:520px){.cta-row{grid-template-columns:1fr 1fr}}
+.btn{
+  display:flex;align-items:center;justify-content:center;gap:9px;
+  min-height:54px;padding:14px 20px;border-radius:var(--radius);
+  font-size:17px;font-weight:700;letter-spacing:-.008em;text-align:center;
+  border:1.5px solid transparent;cursor:pointer;
+  transition:transform .12s ease, box-shadow .16s ease, background .16s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+.btn:active{transform:translateY(1px)}
+.btn-primary{background:var(--accent);color:#fff;box-shadow:var(--shadow-md)}
+.btn-primary:hover{background:var(--accent-dark)}
+.btn-secondary{background:#fff;color:var(--ink);border-color:var(--line);box-shadow:var(--shadow-sm)}
+.btn-secondary:hover{background:var(--bg-2)}
+.btn svg{flex:none}
+.btn-full{width:100%}
+
+/* ============ SERVICES ============ */
+h2.stitle{font-size:23px;margin-bottom:6px}
+.slead{color:var(--ink-3);font-size:15.5px;margin-bottom:18px}
+.svc-list{display:grid;gap:11px}
+.svc{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:16px 17px;box-shadow:var(--shadow-sm);
+  display:flex;gap:14px;align-items:flex-start;
+}
+.svc-ic{
+  flex:none;width:40px;height:40px;border-radius:11px;background:var(--accent-soft);
+  display:grid;place-items:center;font-size:19px;line-height:1;
+}
+.svc-body{flex:1;min-width:0}
+.svc h3{font-size:16.5px;font-weight:750;margin-bottom:3px}
+.svc p{font-size:14.5px;color:var(--ink-3);line-height:1.45}
+.svc-price{
+  font-size:14.5px;font-weight:750;color:var(--accent-dark);white-space:nowrap;
+  padding-top:1px;
+}
+
+/* ============ CALCULATOR ============ */
+.calc{
+  background:var(--bg-2);border:1px solid var(--line);border-radius:var(--radius-lg);
+  padding:20px 18px;box-shadow:var(--shadow-sm);
+}
+.step{margin-bottom:19px}
+.step:last-of-type{margin-bottom:6px}
+.step-label{
+  display:flex;align-items:baseline;gap:8px;
+  font-size:14px;font-weight:750;letter-spacing:.02em;text-transform:uppercase;
+  color:var(--ink-2);margin-bottom:9px;
+}
+.step-num{
+  flex:none;width:20px;height:20px;border-radius:50%;background:var(--accent);
+  color:#fff;font-size:11.5px;font-weight:800;display:grid;place-items:center;
+  text-transform:none;letter-spacing:0;align-self:center;
+}
+.step-hint{font-size:12.5px;font-weight:500;color:var(--ink-3);text-transform:none;letter-spacing:0}
+.opts{display:grid;gap:8px}
+.opts.cols-2{grid-template-columns:1fr 1fr}
+.opts.cols-3{grid-template-columns:repeat(3,1fr)}
+.opt{
+  position:relative;background:#fff;border:1.5px solid var(--line);border-radius:12px;
+  padding:12px 13px;cursor:pointer;transition:border-color .14s,background .14s,box-shadow .14s;
+  display:block;min-height:52px;
+  -webkit-tap-highlight-color:transparent;
+}
+.opt:hover{border-color:#c9d2dc}
+.opt input{position:absolute;opacity:0;width:0;height:0}
+.opt-t{display:block;font-size:15px;font-weight:700;line-height:1.3}
+.opt-d{display:block;font-size:12.5px;color:var(--ink-3);margin-top:2px;line-height:1.35}
+.opt:has(input:checked){
+  border-color:var(--accent);background:var(--accent-soft);
+  box-shadow:0 0 0 3px var(--accent-soft);
+}
+.opt:has(input:focus-visible){outline:2px solid var(--accent);outline-offset:2px}
+.opt:has(input:checked) .opt-t{color:var(--accent-dark)}
+
+/* result */
+.result{
+  margin-top:20px;background:#fff;border:1.5px solid var(--accent);
+  border-radius:var(--radius);padding:18px;text-align:center;box-shadow:var(--shadow-md);
+}
+.result-lab{font-size:12.5px;font-weight:750;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+.result-val{
+  font-size:clamp(32px,9vw,42px);font-weight:850;letter-spacing:-.03em;
+  color:var(--accent-dark);margin:5px 0 3px;line-height:1.05;
+  font-variant-numeric:tabular-nums;
+}
+.result-sum{font-size:14px;color:var(--ink-2);margin-bottom:3px}
+.result-dis{font-size:12.5px;color:var(--ink-3);line-height:1.45;margin-top:9px;padding-top:9px;border-top:1px solid var(--line-2)}
+
+/* ============ FORM ============ */
+.form{display:grid;gap:12px}
+.field label{display:block;font-size:13.5px;font-weight:700;color:var(--ink-2);margin-bottom:5px}
+.field input,.field textarea,.field select{
+  width:100%;padding:13px 14px;font-size:16px;font-family:inherit;color:var(--ink);
+  background:#fff;border:1.5px solid var(--line);border-radius:11px;
+  transition:border-color .14s,box-shadow .14s;
+}
+.field input:focus,.field textarea:focus,.field select:focus{
+  outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft);
+}
+.field textarea{min-height:88px;resize:vertical}
+.form-note{font-size:12.5px;color:var(--ink-3);line-height:1.45}
+.sent{
+  background:#eaf7f0;border:1.5px solid #a8dcc2;color:#0a6b3d;
+  border-radius:12px;padding:15px;font-size:15px;font-weight:650;text-align:center;
+}
+
+/* ============ INFO ============ */
+.info{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.info-row{background:#fff;padding:13px 16px;display:flex;justify-content:space-between;gap:16px;align-items:baseline}
+.info-k{font-size:14px;color:var(--ink-3);font-weight:600;flex:none}
+.info-v{font-size:15px;font-weight:650;text-align:right}
+
+/* ============ FOOTER ============ */
+footer{background:var(--bg-2);border-top:1px solid var(--line);padding:26px 0 30px;margin-top:6px}
+footer .fname{font-weight:800;font-size:16px;margin-bottom:4px}
+footer p{font-size:13.5px;color:var(--ink-3);line-height:1.5}
+.footer-demo{
+  margin-top:14px;padding-top:14px;border-top:1px solid var(--line);
+  font-size:12px;color:var(--ink-3);line-height:1.5;
+}
+
+/* ============ STICKY BAR ============ */
+.sticky{
+  position:fixed;left:0;right:0;bottom:0;z-index:60;
+  background:rgba(255,255,255,.94);backdrop-filter:saturate(180%) blur(12px);
+  -webkit-backdrop-filter:saturate(180%) blur(12px);
+  border-top:1px solid var(--line);
+  padding:9px 14px calc(9px + env(safe-area-inset-bottom));
+  box-shadow:0 -3px 16px rgba(16,24,40,.07);
+}
+.sticky-in{max-width:var(--maxw);margin:0 auto;display:grid;gap:8px}
+.sticky .btn{min-height:50px;font-size:16.5px;box-shadow:none}
+@media(min-width:520px){.sticky-in{grid-template-columns:1fr 1fr}}
+@media(min-width:900px){.sticky{display:none}body{padding-bottom:0!important}}
+
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<div class="demo-note" id="demoNote">
+  <b>Concept demo</b> — built as a proposal for Nor Bay Mobile Detailing. Not the official website.
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="dot"></span>San Jose &amp; South Bay</span>
+    <h1>Your price in 3 taps</h1>
+    <p class="sub">Your real published prices — 21 of them — collapsed into one number a customer can act on.</p>
+    <div class="trust"><span class="chip">We come to you</span>
+<span class="chip">Mon–Sat 7:30am–6pm</span>
+<span class="chip">San Jose &amp; Peninsula</span></div>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="tel:4083733614" data-track="call">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Call (408) 373-3614
+      </a>
+      <a class="btn btn-secondary" href="#quote">Get my price</a>
+    </div>
+  </div>
+</header>
+
+<section class="sec" id="services">
+  <div class="wrap">
+    <h2 class="stitle">Detailing packages</h2>
+    <p class="slead">Exactly as published on norbaymobile.com — sedan pricing shown, with real service times.</p>
+    <div class="svc-list"><div class="svc"><div class="svc-ic" aria-hidden="true">💧</div><div class="svc-body"><h3>Wash &amp; Wax</h3><p>Exterior detail — about 1 hour.</p></div><div class="svc-price">from $145</div></div>
+<div class="svc"><div class="svc-ic" aria-hidden="true">✨</div><div class="svc-body"><h3>Wash &amp; Polish</h3><p>Exterior detail — about 2 hours.</p></div><div class="svc-price">from $195</div></div>
+<div class="svc"><div class="svc-ic" aria-hidden="true">🧼</div><div class="svc-body"><h3>Interior Standard</h3><p>Interior detail — about 2–3 hours.</p></div><div class="svc-price">from $195</div></div>
+<div class="svc"><div class="svc-ic" aria-hidden="true">🚗</div><div class="svc-body"><h3>Full Detail — Deluxe</h3><p>Inside and out — about 3.3 hours.</p></div><div class="svc-price">from $295</div></div>
+<div class="svc"><div class="svc-ic" aria-hidden="true">💎</div><div class="svc-body"><h3>Full Detail — Signature</h3><p>Most complete package — about 4.3 hours.</p></div><div class="svc-price">from $455</div></div>
+<div class="svc"><div class="svc-ic" aria-hidden="true">🛡️</div><div class="svc-body"><h3>Ceramic coating &amp; PPF</h3><p>1–10 year protection and paint protection film.</p></div><div class="svc-price">quoted separately</div></div></div>
+  </div>
+</section>
+
+<!--CALC_START-->
+<section class="sec" id="quote">
+  <div class="wrap">
+    <h2 class="stitle">Instant price</h2>
+    <p class="slead">Pick your vehicle and package — the exact published price appears instantly.</p>
+    <div class="calc">
+      <form id="calcForm"><div class="step"><div class="step-label"><span class="step-num">1</span>Your vehicle</div><div class="opts cols-3"><label class="opt"><input type="radio" name="size" value="0" checked><span class="opt-t">Sedan</span></label><label class="opt"><input type="radio" name="size" value="1"><span class="opt-t">SUV</span></label><label class="opt"><input type="radio" name="size" value="2"><span class="opt-t">Large SUV</span></label></div></div>
+<div class="step"><div class="step-label"><span class="step-num">2</span>Package</div><div class="opts"><label class="opt"><input type="radio" name="package" value="0" checked><span class="opt-t">Exterior — Wash &amp; Wax</span><span class="opt-d">About 1–1.5 hours</span></label><label class="opt"><input type="radio" name="package" value="1"><span class="opt-t">Exterior — Wash &amp; Polish</span><span class="opt-d">About 2–2.75 hours</span></label><label class="opt"><input type="radio" name="package" value="2"><span class="opt-t">Exterior — Wash, Clay Bar &amp; Polish</span><span class="opt-d">About 2.5–3 hours</span></label><label class="opt"><input type="radio" name="package" value="3"><span class="opt-t">Interior — Standard</span><span class="opt-d">About 2–4.5 hours</span></label><label class="opt"><input type="radio" name="package" value="4"><span class="opt-t">Interior — Heavy</span><span class="opt-d">About 4–5.5 hours</span></label><label class="opt"><input type="radio" name="package" value="5"><span class="opt-t">Full Detail — Deluxe</span><span class="opt-d">Inside and out, about 3.3–5.3 hours</span></label><label class="opt"><input type="radio" name="package" value="6"><span class="opt-t">Full Detail — Signature</span><span class="opt-d">Most complete, about 4.3–6 hours</span></label></div></div></form>
+      <div class="result" aria-live="polite">
+        <div class="result-lab">Your price</div>
+        <div class="result-val" id="calcVal">—</div>
+        <div class="result-sum" id="calcSum">Choose your options above</div>
+        <div class="result-dis">These are Nor Bay&#x27;s published prices for the selected package and vehicle size. Ceramic coating, paint protection film and paint correction are quoted separately. Final price may vary with vehicle condition.</div>
+      </div>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="tel:4083733614">Call to book</a>
+        <a class="btn btn-secondary" href="#contact">Request this booking</a>
+      </div>
+    </div>
+  </div>
+</section>
+<!--CALC_END-->
+
+<section class="sec" id="contact">
+  <div class="wrap">
+    <h2 class="stitle">Rather have Nor Bay call you?</h2>
+    <p class="slead">Leave a number and the booking comes straight through.</p>
+    <form class="form" id="leadForm" novalidate>
+      <div class="field"><label for="f_name">Name</label><input id="f_name" name="name" type="text" autocomplete="name" required></div>
+      <div class="field"><label for="f_phone">Phone</label><input id="f_phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required></div>
+      <div class="field"><label for="f_detail">Vehicle and preferred day (optional)</label><textarea id="f_detail" name="detail"></textarea></div>
+      <button class="btn btn-primary btn-full" type="submit">Request my booking</button>
+      <p class="form-note">Concept demo — this form is not connected. On the live version it would go straight to your phone or email.</p>
+    </form>
+    <div class="sent" id="formSent" hidden>This is a demo, so nothing was sent — on your live site this would reach you instantly.</div>
+  </div>
+</section>
+
+<section class="sec" id="info">
+  <div class="wrap">
+    <h2 class="stitle">Good to know</h2>
+    <div class="info"><div class="info-row"><span class="info-k">Based in</span><span class="info-v">San Jose, CA 95124</span></div>
+<div class="info-row"><span class="info-k">Hours</span><span class="info-v">Mon–Sat, 7:30am–6pm</span></div>
+<div class="info-row"><span class="info-k">Phone</span><span class="info-v">(408) 373-3614</span></div>
+<div class="info-row"><span class="info-k">Also serving</span><span class="info-v">Santa Clara, Campbell, Cupertino</span></div></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fname">Nor Bay Mobile Detailing</div>
+    <p>Mobile detailing, ceramic coating and paint protection across San Jose and the Peninsula.</p>
+    <p class="footer-demo">This page is an unaffiliated concept demo prepared for Nor Bay Mobile Detailing to illustrate a proposed mobile quote flow. It is not the official website of Nor Bay Mobile Detailing. Business details shown are from public listings. Prices shown by the estimator are demonstration values only, not quoted prices.</p>
+  </div>
+</footer>
+
+<div class="sticky" id="stickyBar">
+  <div class="sticky-in">
+    <a class="btn btn-primary" href="tel:4083733614">Call now</a>
+    <a class="btn btn-secondary" href="#quote">Get my price</a>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* keep content clear of the sticky bar */
+  var bar=document.getElementById('stickyBar');
+  function pad(){
+    if(!bar) return;
+    var h = window.matchMedia('(min-width:900px)').matches ? 0 : bar.offsetHeight + 10;
+    document.body.style.setProperty('--stickypad', h+'px');
+  }
+  pad();
+  window.addEventListener('resize',pad,{passive:true});
+  window.addEventListener('orientationchange',pad,{passive:true});
+
+  /* smooth in-page scroll */
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('a[href^="#"]'); if(!a) return;
+    var t=document.getElementById(a.getAttribute('href').slice(1)); if(!t) return;
+    e.preventDefault();
+    t.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+
+  /* ---------- ESTIMATE ENGINE ---------- */
+  var CFG = {"mode": "range", "range_pct": 0, "round_to": 1, "min": 0, "matrix": {"rowStep": "package", "colStep": "size", "values": [[145, 155, 175], [195, 245, 265], [275, 285, 325], [195, 265, 295], [285, 295, 345], [295, 365, 395], [455, 475, 495]]}, "steps": [{"id": "size", "type": "choice", "options": [{"label": "Sedan"}, {"label": "SUV"}, {"label": "Large SUV"}]}, {"id": "package", "type": "choice", "options": [{"label": "Exterior \u2014 Wash & Wax"}, {"label": "Exterior \u2014 Wash & Polish"}, {"label": "Exterior \u2014 Wash, Clay Bar & Polish"}, {"label": "Interior \u2014 Standard"}, {"label": "Interior \u2014 Heavy"}, {"label": "Full Detail \u2014 Deluxe"}, {"label": "Full Detail \u2014 Signature"}]}]};
+  var form=document.getElementById('calcForm');
+
+  function money(n){
+    return '$' + Math.round(n).toLocaleString('en-US');
+  }
+
+  function compute(){
+    if(!form || !CFG) return;
+    var base=0, mult=1, add=0, labels=[], missing=false, picked={};
+
+    (CFG.steps||[]).forEach(function(st){
+      if(st.type==='multi'){
+        var checked=form.querySelectorAll('input[name="'+st.id+'"]:checked');
+        checked.forEach(function(inp){
+          var o=st.options[+inp.value];
+          if(!o) return;
+          add += (o.add||0); mult *= (o.mult||1); base += (o.base||0);
+          labels.push(o.label);
+        });
+      }else{
+        var s=form.querySelector('input[name="'+st.id+'"]:checked');
+        if(!s){ missing=true; return; }
+        picked[st.id]=+s.value;
+        var o2=st.options[+s.value];
+        if(!o2) return;
+        base += (o2.base||0); mult *= (o2.mult||1); add += (o2.add||0);
+        labels.push(o2.label);
+      }
+    });
+
+    /* Exact published price grid (package x size) wins over any formula,
+       so a business's real prices are reproduced rather than approximated. */
+    if(CFG.matrix && !missing){
+      var mr=picked[CFG.matrix.rowStep], mc=picked[CFG.matrix.colStep];
+      var row=CFG.matrix.values[mr];
+      if(row && row[mc]!=null){ base=row[mc]; mult=1; }
+    }
+
+    var valEl=document.getElementById('calcVal');
+    var sumEl=document.getElementById('calcSum');
+
+    if(missing){
+      valEl.textContent='—';
+      sumEl.textContent='Choose your options above';
+      return;
+    }
+
+    var total = base*mult + add;
+    if(CFG.min && total < CFG.min) total = CFG.min;
+
+    if(CFG.mode==='lead'){
+      valEl.textContent='Custom quote';
+      sumEl.textContent = labels.join(' · ') + ' — we confirm your exact price by phone.';
+      return;
+    }
+
+    var spread = (CFG.range_pct==null?0.12:CFG.range_pct);
+    var lo = total*(1-spread), hi = total*(1+spread);
+    var step = CFG.round_to || 5;
+    lo = Math.floor(lo/step)*step;
+    hi = Math.ceil(hi/step)*step;
+
+    valEl.textContent = (lo===hi) ? money(lo) : money(lo)+'–'+money(hi);
+    sumEl.textContent = labels.join(' · ');
+  }
+
+  if(form){
+    form.addEventListener('change',compute);
+    form.addEventListener('submit',function(e){e.preventDefault()});
+    compute();
+  }
+
+  /* ---------- LEAD FORM (demo: no backend) ---------- */
+  var lf=document.getElementById('leadForm');
+  if(lf){
+    lf.addEventListener('submit',function(e){
+      e.preventDefault();
+      var name=lf.querySelector('#f_name'), phone=lf.querySelector('#f_phone');
+      var bad=false;
+      [name,phone].forEach(function(f){
+        if(!f.value.trim()){ f.style.borderColor='#d64545'; bad=true; }
+        else { f.style.borderColor=''; }
+      });
+      if(bad){ (name.value.trim()?phone:name).focus(); return; }
+      lf.hidden=true;
+      var s=document.getElementById('formSent');
+      s.hidden=false;
+      s.scrollIntoView({behavior:'smooth',block:'center'});
+    });
+  }
+})();
+</script>
+</body>
+</html>
