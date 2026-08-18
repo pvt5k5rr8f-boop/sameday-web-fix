@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SpotFree — Instant Quote Request (concept demo)</title>
+<meta name="description" content="Concept demo: instant quote request for SpotFree Window Cleaning, Oakland & East Bay.">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="SpotFree — Instant Quote Request (concept demo)">
+<meta property="og:description" content="Concept demo: instant quote request for SpotFree Window Cleaning, Oakland & East Bay.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪟</text></svg>">
+<style>
+/* ============ TOKENS ============ */
+:root{
+  --accent:#0369a1;
+  --accent-dark:#02517d;
+  --accent-soft:rgba(3,105,161,0.10);
+  --ink:#12161c;
+  --ink-2:#414b58;
+  --ink-3:#6b7684;
+  --line:#e3e7ec;
+  --line-2:#eef1f4;
+  --bg:#ffffff;
+  --bg-2:#f6f8fa;
+  --bg-3:#eef2f6;
+  --ok:#0a7d46;
+  --radius:14px;
+  --radius-lg:20px;
+  --shadow-sm:0 1px 2px rgba(16,24,40,.05),0 1px 3px rgba(16,24,40,.06);
+  --shadow-md:0 4px 12px rgba(16,24,40,.07),0 2px 4px rgba(16,24,40,.04);
+  --shadow-lg:0 16px 40px rgba(16,24,40,.12),0 4px 12px rgba(16,24,40,.06);
+  --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --maxw:640px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;font-family:var(--font);color:var(--ink);background:var(--bg);
+  font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;
+  padding-bottom:var(--stickypad,0px);
+}
+img{max-width:100%;display:block}
+a{color:var(--accent-dark);text-decoration:none}
+h1,h2,h3{margin:0;line-height:1.18;letter-spacing:-0.021em;font-weight:800}
+p{margin:0}
+button{font:inherit}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+.sec{padding:38px 0}
+.sec + .sec{border-top:1px solid var(--line-2)}
+
+/* ============ DEMO RIBBON ============ */
+.demo-note{
+  background:#1d2430;color:#c8d2e0;font-size:12.5px;line-height:1.45;
+  padding:9px 20px;text-align:center;letter-spacing:.01em;
+}
+.demo-note b{color:#fff;font-weight:650}
+
+/* ============ HERO ============ */
+.hero{background:linear-gradient(178deg,var(--bg-2) 0%,var(--bg) 78%);padding:30px 0 34px}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:700;
+  letter-spacing:.055em;text-transform:uppercase;color:var(--accent-dark);
+  background:var(--accent-soft);padding:6px 11px;border-radius:100px;margin-bottom:14px;
+}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--ok);flex:none}
+.hero h1{font-size:clamp(29px,7.6vw,40px);margin-bottom:11px}
+.hero .sub{font-size:17.5px;color:var(--ink-2);margin-bottom:8px}
+.trust{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}
+.chip{
+  font-size:13.5px;font-weight:600;color:var(--ink-2);background:var(--bg-3);
+  border:1px solid var(--line);padding:6px 11px;border-radius:100px;
+}
+
+/* ============ BUTTONS ============ */
+.cta-row{display:grid;gap:10px;margin-top:20px}
+@media(min-width:520px){.cta-row{grid-template-columns:1fr 1fr}}
+.btn{
+  display:flex;align-items:center;justify-content:center;gap:9px;
+  min-height:54px;padding:14px 20px;border-radius:var(--radius);
+  font-size:17px;font-weight:700;letter-spacing:-.008em;text-align:center;
+  border:1.5px solid transparent;cursor:pointer;
+  transition:transform .12s ease, box-shadow .16s ease, background .16s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+.btn:active{transform:translateY(1px)}
+.btn-primary{background:var(--accent);color:#fff;box-shadow:var(--shadow-md)}
+.btn-primary:hover{background:var(--accent-dark)}
+.btn-secondary{background:#fff;color:var(--ink);border-color:var(--line);box-shadow:var(--shadow-sm)}
+.btn-secondary:hover{background:var(--bg-2)}
+.btn svg{flex:none}
+.btn-full{width:100%}
+
+/* ============ SERVICES ============ */
+h2.stitle{font-size:23px;margin-bottom:6px}
+.slead{color:var(--ink-3);font-size:15.5px;margin-bottom:18px}
+.svc-list{display:grid;gap:11px}
+.svc{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:16px 17px;box-shadow:var(--shadow-sm);
+  display:flex;gap:14px;align-items:flex-start;
+}
+.svc-ic{
+  flex:none;width:40px;height:40px;border-radius:11px;background:var(--accent-soft);
+  display:grid;place-items:center;font-size:19px;line-height:1;
+}
+.svc-body{flex:1;min-width:0}
+.svc h3{font-size:16.5px;font-weight:750;margin-bottom:3px}
+.svc p{font-size:14.5px;color:var(--ink-3);line-height:1.45}
+.svc-price{
+  font-size:14.5px;font-weight:750;color:var(--accent-dark);white-space:nowrap;
+  padding-top:1px;
+}
+
+/* ============ CALCULATOR ============ */
+.calc{
+  background:var(--bg-2);border:1px solid var(--line);border-radius:var(--radius-lg);
+  padding:20px 18px;box-shadow:var(--shadow-sm);
+}
+.step{margin-bottom:19px}
+.step:last-of-type{margin-bottom:6px}
+.step-label{
+  display:flex;align-items:baseline;gap:8px;
+  font-size:14px;font-weight:750;letter-spacing:.02em;text-transform:uppercase;
+  color:var(--ink-2);margin-bottom:9px;
+}
+.step-num{
+  flex:none;width:20px;height:20px;border-radius:50%;background:var(--accent);
+  color:#fff;font-size:11.5px;font-weight:800;display:grid;place-items:center;
+  text-transform:none;letter-spacing:0;align-self:center;
+}
+.step-hint{font-size:12.5px;font-weight:500;color:var(--ink-3);text-transform:none;letter-spacing:0}
+.opts{display:grid;gap:8px}
+.opts.cols-2{grid-template-columns:1fr 1fr}
+.opts.cols-3{grid-template-columns:repeat(3,1fr)}
+.opt{
+  position:relative;background:#fff;border:1.5px solid var(--line);border-radius:12px;
+  padding:12px 13px;cursor:pointer;transition:border-color .14s,background .14s,box-shadow .14s;
+  display:block;min-height:52px;
+  -webkit-tap-highlight-color:transparent;
+}
+.opt:hover{border-color:#c9d2dc}
+.opt input{position:absolute;opacity:0;width:0;height:0}
+.opt-t{display:block;font-size:15px;font-weight:700;line-height:1.3}
+.opt-d{display:block;font-size:12.5px;color:var(--ink-3);margin-top:2px;line-height:1.35}
+.opt:has(input:checked){
+  border-color:var(--accent);background:var(--accent-soft);
+  box-shadow:0 0 0 3px var(--accent-soft);
+}
+.opt:has(input:focus-visible){outline:2px solid var(--accent);outline-offset:2px}
+.opt:has(input:checked) .opt-t{color:var(--accent-dark)}
+
+/* result */
+.result{
+  margin-top:20px;background:#fff;border:1.5px solid var(--accent);
+  border-radius:var(--radius);padding:18px;text-align:center;box-shadow:var(--shadow-md);
+}
+.result-lab{font-size:12.5px;font-weight:750;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+.result-val{
+  font-size:clamp(32px,9vw,42px);font-weight:850;letter-spacing:-.03em;
+  color:var(--accent-dark);margin:5px 0 3px;line-height:1.05;
+  font-variant-numeric:tabular-nums;
+}
+.result-sum{font-size:14px;color:var(--ink-2);margin-bottom:3px}
+.result-dis{font-size:12.5px;color:var(--ink-3);line-height:1.45;margin-top:9px;padding-top:9px;border-top:1px solid var(--line-2)}
+
+/* ============ FORM ============ */
+.form{display:grid;gap:12px}
+.field label{display:block;font-size:13.5px;font-weight:700;color:var(--ink-2);margin-bottom:5px}
+.field input,.field textarea,.field select{
+  width:100%;padding:13px 14px;font-size:16px;font-family:inherit;color:var(--ink);
+  background:#fff;border:1.5px solid var(--line);border-radius:11px;
+  transition:border-color .14s,box-shadow .14s;
+}
+.field input:focus,.field textarea:focus,.field select:focus{
+  outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft);
+}
+.field textarea{min-height:88px;resize:vertical}
+.form-note{font-size:12.5px;color:var(--ink-3);line-height:1.45}
+.sent{
+  background:#eaf7f0;border:1.5px solid #a8dcc2;color:#0a6b3d;
+  border-radius:12px;padding:15px;font-size:15px;font-weight:650;text-align:center;
+}
+
+/* ============ INFO ============ */
+.info{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.info-row{background:#fff;padding:13px 16px;display:flex;justify-content:space-between;gap:16px;align-items:baseline}
+.info-k{font-size:14px;color:var(--ink-3);font-weight:600;flex:none}
+.info-v{font-size:15px;font-weight:650;text-align:right}
+
+/* ============ FOOTER ============ */
+footer{background:var(--bg-2);border-top:1px solid var(--line);padding:26px 0 30px;margin-top:6px}
+footer .fname{font-weight:800;font-size:16px;margin-bottom:4px}
+footer p{font-size:13.5px;color:var(--ink-3);line-height:1.5}
+.footer-demo{
+  margin-top:14px;padding-top:14px;border-top:1px solid var(--line);
+  font-size:12px;color:var(--ink-3);line-height:1.5;
+}
+
+/* ============ STICKY BAR ============ */
+.sticky{
+  position:fixed;left:0;right:0;bottom:0;z-index:60;
+  background:rgba(255,255,255,.94);backdrop-filter:saturate(180%) blur(12px);
+  -webkit-backdrop-filter:saturate(180%) blur(12px);
+  border-top:1px solid var(--line);
+  padding:9px 14px calc(9px + env(safe-area-inset-bottom));
+  box-shadow:0 -3px 16px rgba(16,24,40,.07);
+}
+.sticky-in{max-width:var(--maxw);margin:0 auto;display:grid;gap:8px}
+.sticky .btn{min-height:50px;font-size:16.5px;box-shadow:none}
+@media(min-width:520px){.sticky-in{grid-template-columns:1fr 1fr}}
+@media(min-width:900px){.sticky{display:none}body{padding-bottom:0!important}}
+
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<div class="demo-note" id="demoNote">
+  <b>Concept demo</b> — built as a proposal for SpotFree Window Cleaning. Not the official website.
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="dot"></span>Oakland &amp; East Bay</span>
+    <h1>Get your quote started in 30 seconds</h1>
+    <p class="sub">Same careful quoting process — but a customer can start it at 11pm without booking a call first.</p>
+    <div class="trust"><span class="chip">Oakland &amp; East Bay</span>
+<span class="chip">Residential &amp; commercial</span>
+<span class="chip">Free quotes</span></div>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="tel:5102143794" data-track="call">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Call (510) 214-3794
+      </a>
+      <a class="btn btn-secondary" href="#quote">Start my quote</a>
+    </div>
+  </div>
+</header>
+
+<section class="sec" id="services">
+  <div class="wrap">
+    <h2 class="stitle">Services</h2>
+    <p class="slead">As listed on spotfreewindow.com.</p>
+    <div class="svc-list"><div class="svc"><div class="svc-ic" aria-hidden="true">🪟</div><div class="svc-body"><h3>Window cleaning</h3><p>Residential, commercial and business window cleaning.</p></div><div class="svc-price">quote</div></div>
+<div class="svc"><div class="svc-ic" aria-hidden="true">💦</div><div class="svc-body"><h3>Pressure &amp; power washing</h3><p>Driveways, decks, walkways, sidewalks and curbs.</p></div><div class="svc-price">quote</div></div>
+<div class="svc"><div class="svc-ic" aria-hidden="true">🏠</div><div class="svc-body"><h3>Soft wash</h3><p>For siding, stucco and painted wood.</p></div><div class="svc-price">quote</div></div>
+<div class="svc"><div class="svc-ic" aria-hidden="true">🔥</div><div class="svc-body"><h3>Hot-water power washing</h3><p>For grease and oil stains.</p></div><div class="svc-price">quote</div></div>
+<div class="svc"><div class="svc-ic" aria-hidden="true">🌧️</div><div class="svc-body"><h3>Gutter cleaning</h3><p>Residential gutter clearing.</p></div><div class="svc-price">quote</div></div>
+<div class="svc"><div class="svc-ic" aria-hidden="true">☀️</div><div class="svc-body"><h3>Solar panel cleaning</h3><p>Restore panel output.</p></div><div class="svc-price">quote</div></div></div>
+  </div>
+</section>
+
+<!--CALC_START-->
+<section class="sec" id="quote">
+  <div class="wrap">
+    <h2 class="stitle">Start your quote</h2>
+    <p class="slead">Four taps. This replaces the first two steps of your current process, not the inspection.</p>
+    <div class="calc">
+      <form id="calcForm"><div class="step"><div class="step-label"><span class="step-num">1</span>What you need</div><div class="opts"><label class="opt"><input type="radio" name="service" value="0" checked><span class="opt-t">Window cleaning</span></label><label class="opt"><input type="radio" name="service" value="1"><span class="opt-t">Pressure / power washing</span></label><label class="opt"><input type="radio" name="service" value="2"><span class="opt-t">Soft wash (siding or stucco)</span></label><label class="opt"><input type="radio" name="service" value="3"><span class="opt-t">Gutter cleaning</span></label><label class="opt"><input type="radio" name="service" value="4"><span class="opt-t">Solar panel cleaning</span></label></div></div>
+<div class="step"><div class="step-label"><span class="step-num">2</span>Property type</div><div class="opts cols-2"><label class="opt"><input type="radio" name="property" value="0" checked><span class="opt-t">Home</span></label><label class="opt"><input type="radio" name="property" value="1"><span class="opt-t">Commercial</span></label></div></div>
+<div class="step"><div class="step-label"><span class="step-num">3</span>Approximate size</div><div class="opts cols-3"><label class="opt"><input type="radio" name="size" value="0" checked><span class="opt-t">Small</span><span class="opt-d">1 storey</span></label><label class="opt"><input type="radio" name="size" value="1"><span class="opt-t">Medium</span><span class="opt-d">2 storeys</span></label><label class="opt"><input type="radio" name="size" value="2"><span class="opt-t">Large</span><span class="opt-d">3+ storeys</span></label></div></div>
+<div class="step"><div class="step-label"><span class="step-num">4</span>Timing</div><div class="opts cols-3"><label class="opt"><input type="radio" name="timing" value="0" checked><span class="opt-t">ASAP</span></label><label class="opt"><input type="radio" name="timing" value="1"><span class="opt-t">This month</span></label><label class="opt"><input type="radio" name="timing" value="2"><span class="opt-t">Planning</span></label></div></div></form>
+      <div class="result" aria-live="polite">
+        <div class="result-lab">Your request</div>
+        <div class="result-val" id="calcVal">—</div>
+        <div class="result-sum" id="calcSum">Choose your options above</div>
+        <div class="result-dis">No price is shown or estimated. SpotFree quotes each property individually after a virtual and on-site review — this simply captures the details up front so the first call is already informed.</div>
+      </div>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="tel:5102143794">Call SpotFree</a>
+        <a class="btn btn-secondary" href="#contact">Send my details</a>
+      </div>
+    </div>
+  </div>
+</section>
+<!--CALC_END-->
+
+<section class="sec" id="contact">
+  <div class="wrap">
+    <h2 class="stitle">Where should the quote go?</h2>
+    <p class="slead">SpotFree reviews the property and emails your quote.</p>
+    <form class="form" id="leadForm" novalidate>
+      <div class="field"><label for="f_name">Name</label><input id="f_name" name="name" type="text" autocomplete="name" required></div>
+      <div class="field"><label for="f_phone">Phone</label><input id="f_phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required></div>
+      <div class="field"><label for="f_detail">Property address or anything else (optional)</label><textarea id="f_detail" name="detail"></textarea></div>
+      <button class="btn btn-primary btn-full" type="submit">Send my quote request</button>
+      <p class="form-note">Concept demo — this form is not connected. On the live version it would arrive in your inbox immediately.</p>
+    </form>
+    <div class="sent" id="formSent" hidden>This is a demo, so nothing was sent — on your live site this would reach SpotFree instantly.</div>
+  </div>
+</section>
+
+<section class="sec" id="info">
+  <div class="wrap">
+    <h2 class="stitle">Good to know</h2>
+    <div class="info"><div class="info-row"><span class="info-k">Service area</span><span class="info-v">Oakland &amp; East Bay</span></div>
+<div class="info-row"><span class="info-k">Phone</span><span class="info-v">(510) 214-3794</span></div>
+<div class="info-row"><span class="info-k">Hours</span><span class="info-v">24/7 enquiries</span></div>
+<div class="info-row"><span class="info-k">Quotes</span><span class="info-v">Free, no obligation</span></div></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fname">SpotFree Window Cleaning</div>
+    <p>Window cleaning, pressure washing and gutter care across Oakland, Berkeley, Alameda and the East Bay.</p>
+    <p class="footer-demo">This page is an unaffiliated concept demo prepared for SpotFree Window Cleaning to illustrate a proposed mobile quote flow. It is not the official website of SpotFree Window Cleaning. Business details shown are from public listings. Prices shown by the estimator are demonstration values only, not quoted prices.</p>
+  </div>
+</footer>
+
+<div class="sticky" id="stickyBar">
+  <div class="sticky-in">
+    <a class="btn btn-primary" href="tel:5102143794">Call now</a>
+    <a class="btn btn-secondary" href="#quote">Start my quote</a>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* keep content clear of the sticky bar */
+  var bar=document.getElementById('stickyBar');
+  function pad(){
+    if(!bar) return;
+    var h = window.matchMedia('(min-width:900px)').matches ? 0 : bar.offsetHeight + 10;
+    document.body.style.setProperty('--stickypad', h+'px');
+  }
+  pad();
+  window.addEventListener('resize',pad,{passive:true});
+  window.addEventListener('orientationchange',pad,{passive:true});
+
+  /* smooth in-page scroll */
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('a[href^="#"]'); if(!a) return;
+    var t=document.getElementById(a.getAttribute('href').slice(1)); if(!t) return;
+    e.preventDefault();
+    t.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+
+  /* ---------- ESTIMATE ENGINE ---------- */
+  var CFG = {"mode": "lead", "range_pct": 0.12, "round_to": 5, "min": 0, "matrix": null, "steps": [{"id": "service", "type": "choice", "options": [{"label": "Window cleaning"}, {"label": "Pressure / power washing"}, {"label": "Soft wash (siding or stucco)"}, {"label": "Gutter cleaning"}, {"label": "Solar panel cleaning"}]}, {"id": "property", "type": "choice", "options": [{"label": "Home"}, {"label": "Commercial"}]}, {"id": "size", "type": "choice", "options": [{"label": "Small"}, {"label": "Medium"}, {"label": "Large"}]}, {"id": "timing", "type": "choice", "options": [{"label": "ASAP"}, {"label": "This month"}, {"label": "Planning"}]}]};
+  var form=document.getElementById('calcForm');
+
+  function money(n){
+    return '$' + Math.round(n).toLocaleString('en-US');
+  }
+
+  function compute(){
+    if(!form || !CFG) return;
+    var base=0, mult=1, add=0, labels=[], missing=false, picked={};
+
+    (CFG.steps||[]).forEach(function(st){
+      if(st.type==='multi'){
+        var checked=form.querySelectorAll('input[name="'+st.id+'"]:checked');
+        checked.forEach(function(inp){
+          var o=st.options[+inp.value];
+          if(!o) return;
+          add += (o.add||0); mult *= (o.mult||1); base += (o.base||0);
+          labels.push(o.label);
+        });
+      }else{
+        var s=form.querySelector('input[name="'+st.id+'"]:checked');
+        if(!s){ missing=true; return; }
+        picked[st.id]=+s.value;
+        var o2=st.options[+s.value];
+        if(!o2) return;
+        base += (o2.base||0); mult *= (o2.mult||1); add += (o2.add||0);
+        labels.push(o2.label);
+      }
+    });
+
+    /* Exact published price grid (package x size) wins over any formula,
+       so a business's real prices are reproduced rather than approximated. */
+    if(CFG.matrix && !missing){
+      var mr=picked[CFG.matrix.rowStep], mc=picked[CFG.matrix.colStep];
+      var row=CFG.matrix.values[mr];
+      if(row && row[mc]!=null){ base=row[mc]; mult=1; }
+    }
+
+    var valEl=document.getElementById('calcVal');
+    var sumEl=document.getElementById('calcSum');
+
+    if(missing){
+      valEl.textContent='—';
+      sumEl.textContent='Choose your options above';
+      return;
+    }
+
+    var total = base*mult + add;
+    if(CFG.min && total < CFG.min) total = CFG.min;
+
+    if(CFG.mode==='lead'){
+      valEl.textContent='Custom quote';
+      sumEl.textContent = labels.join(' · ') + ' — we confirm your exact price by phone.';
+      return;
+    }
+
+    var spread = (CFG.range_pct==null?0.12:CFG.range_pct);
+    var lo = total*(1-spread), hi = total*(1+spread);
+    var step = CFG.round_to || 5;
+    lo = Math.floor(lo/step)*step;
+    hi = Math.ceil(hi/step)*step;
+
+    valEl.textContent = (lo===hi) ? money(lo) : money(lo)+'–'+money(hi);
+    sumEl.textContent = labels.join(' · ');
+  }
+
+  if(form){
+    form.addEventListener('change',compute);
+    form.addEventListener('submit',function(e){e.preventDefault()});
+    compute();
+  }
+
+  /* ---------- LEAD FORM (demo: no backend) ---------- */
+  var lf=document.getElementById('leadForm');
+  if(lf){
+    lf.addEventListener('submit',function(e){
+      e.preventDefault();
+      var name=lf.querySelector('#f_name'), phone=lf.querySelector('#f_phone');
+      var bad=false;
+      [name,phone].forEach(function(f){
+        if(!f.value.trim()){ f.style.borderColor='#d64545'; bad=true; }
+        else { f.style.borderColor=''; }
+      });
+      if(bad){ (name.value.trim()?phone:name).focus(); return; }
+      lf.hidden=true;
+      var s=document.getElementById('formSent');
+      s.hidden=false;
+      s.scrollIntoView({behavior:'smooth',block:'center'});
+    });
+  }
+})();
+</script>
+</body>
+</html>
